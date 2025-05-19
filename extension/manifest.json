@@ -1,0 +1,15 @@
+{
+  "name": "Web Interaction Tracker",
+  "version": "1.0",
+  "description": "Capture all requests and events on any website.",
+  "manifest_version": 3,
+  "permissions": ["scripting", "tabs"],
+  "host_permissions": ["<all_urls>"],
+  "devtools_page": "devtools.html",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Tracker"
+  }
+}
