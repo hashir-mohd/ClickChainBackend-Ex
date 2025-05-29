@@ -1,5 +1,5 @@
 function sendLog(payload) {
-  fetch("http://localhost:3000/log", {
+  fetch("https://clickchainapi.imhashir.me/log", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
@@ -33,7 +33,7 @@ chrome.devtools.network.onRequestFinished.addListener((request) => {
 chrome.devtools.inspectedWindow.eval(`
   (function() {
     const sendLog = (type, data) => {
-      fetch("http://localhost:3000/log", {
+      fetch("https://clickchainapi.imhashir.me/log", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

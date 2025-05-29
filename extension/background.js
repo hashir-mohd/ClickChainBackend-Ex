@@ -1,6 +1,6 @@
 // Function to send data to the server
 const sendToServer = (type, data) => {
-  fetch("http://localhost:3000/log", {
+  fetch("https://clickchainapi.imhashir.me/log", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ type, data, timestamp: new Date().toISOString() }),
