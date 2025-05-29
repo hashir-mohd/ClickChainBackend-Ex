@@ -1,15 +1,30 @@
 {
-  "name": "Web Interaction Tracker",
-  "version": "1.0",
-  "description": "Capture all requests and events on any website.",
+  "name": "ClickChain Tracker",
+  "version": "1.0.0",
+  "description": "Comprehensive event and network tracking for debugging",
   "manifest_version": 3,
-  "permissions": ["scripting", "tabs"],
-  "host_permissions": ["<all_urls>"],
-  "devtools_page": "devtools.html",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "webRequest",
+    "webNavigation",
+    "tabs",
+    "scripting",
+    "debugger"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
   "background": {
     "service_worker": "background.js"
   },
-  "action": {
-    "default_title": "Tracker"
-  }
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ]
+  
 }

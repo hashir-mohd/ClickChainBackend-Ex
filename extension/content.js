@@ -38,9 +38,9 @@ window.onerror = (msg, url, line, col, error) => {
 };
 
 // Page info
-sendToServer("page-metadata", {
-  title: document.title,
-  url: location.href,
-  referrer: document.referrer,
-  userAgent: navigator.userAgent,
-});
+// sendToServer("page-metadata", {
+//   title: document.title,
+//   url: location.href,
+//   referrer: document.referrer,
+//   userAgent: navigator.userAgent,
+// });
