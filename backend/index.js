@@ -30,7 +30,7 @@ app.post('/log', async (req, res) => {
   console.log('Type:', entry.type);
   console.log('Timestamp:', entry.timestamp);
   console.log('Received At:', entry.receivedAt);
-  console.log('Data:', JSON.stringify(entry.data, null, 2));
+  // console.log('Data:', JSON.stringify(entry.data, null, 2));
   console.log('------------------------------\n');
 
   try {

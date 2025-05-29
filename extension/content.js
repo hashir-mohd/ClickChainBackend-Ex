@@ -3,11 +3,12 @@ const sendToServer = (type, data) => {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ type, data, timestamp: new Date().toISOString() }),
-  });
+  }).catch((error) => console.error("Failed to send log:", error)); // Log errors
 };
 
 // Clicks
 document.addEventListener("click", (e) => {
+  console.log("Click event captured:", e.target); // Debugging log
   sendToServer("click", {
     tag: e.target.tagName,
     id: e.target.id,
@@ -18,24 +19,12 @@ document.addEventListener("click", (e) => {
 
 // Keyboard
 document.addEventListener("keydown", (e) => {
+  console.log("Keydown event captured:", e.key); // Debugging log
   sendToServer("keydown", {
     key: e.key,
     target: e.target.tagName,
   });
 });
-
-// Scroll
-// window.addEventListener("scroll", () => {
-//   sendToServer("scroll", {
-//     scrollY: window.scrollY,
-//   });
-// });
-
-// DOM changes
-// const observer = new MutationObserver((mutations) => {
-//   sendToServer("dom-change", { count: mutations.length });
-// });
-// observer.observe(document.body, { childList: true, subtree: true });
 
 // JS Errors
 window.onerror = (msg, url, line, col, error) => {
